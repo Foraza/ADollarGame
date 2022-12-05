@@ -1,0 +1,15 @@
+C:\Users\Gustavo\source\repos\ADollarGame\ADollarGame\bin\Debug\ADollarGame.exe.config
+C:\Users\Gustavo\source\repos\ADollarGame\ADollarGame\bin\Debug\ADollarGame.exe
+C:\Users\Gustavo\source\repos\ADollarGame\ADollarGame\bin\Debug\ADollarGame.pdb
+C:\Users\Gustavo\source\repos\ADollarGame\ADollarGame\obj\Debug\ADollarGame.csproj.AssemblyReference.cache
+C:\Users\Gustavo\source\repos\ADollarGame\ADollarGame\obj\Debug\ADollarGame.csproj.SuggestedBindingRedirects.cache
+C:\Users\Gustavo\source\repos\ADollarGame\ADollarGame\obj\Debug\ADollarGame.Principal.resources
+C:\Users\Gustavo\source\repos\ADollarGame\ADollarGame\obj\Debug\ADollarGame.Properties.Resources.resources
+C:\Users\Gustavo\source\repos\ADollarGame\ADollarGame\obj\Debug\ADollarGame.csproj.GenerateResource.cache
+C:\Users\Gustavo\source\repos\ADollarGame\ADollarGame\obj\Debug\ADollarGame.csproj.CoreCompileInputs.cache
+C:\Users\Gustavo\source\repos\ADollarGame\ADollarGame\obj\Debug\ADollarGame.exe
+C:\Users\Gustavo\source\repos\ADollarGame\ADollarGame\obj\Debug\ADollarGame.pdb
+C:\Users\Gustavo\source\repos\ADollarGame\ADollarGame\obj\Debug\ADollarGame.InitGame.resources
+C:\Users\Gustavo\source\repos\ADollarGame\ADollarGame\obj\Debug\ADollarGame.Ranking.resources
+C:\Users\Gustavo\source\repos\ADollarGame\ADollarGame\obj\Debug\ADollarGame.GameOver.resources
+C:\Users\Gustavo\source\repos\ADollarGame\ADollarGame\obj\Debug\ADollarGame.Question.resources
