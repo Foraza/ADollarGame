@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Question));
             this.title_lb = new System.Windows.Forms.Label();
             this.question_gp = new System.Windows.Forms.GroupBox();
-            this.backgroundGroup_pb = new System.Windows.Forms.PictureBox();
             this.question_lb = new System.Windows.Forms.Label();
+            this.backgroundGroup_pb = new System.Windows.Forms.PictureBox();
             this.options_gp = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.stop_bt = new System.Windows.Forms.Button();
@@ -66,15 +66,6 @@
             this.question_gp.TabStop = false;
             this.question_gp.Text = "QUESTION - N";
             // 
-            // backgroundGroup_pb
-            // 
-            this.backgroundGroup_pb.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.backgroundGroup_pb.Location = new System.Drawing.Point(29, 65);
-            this.backgroundGroup_pb.Name = "backgroundGroup_pb";
-            this.backgroundGroup_pb.Size = new System.Drawing.Size(1195, 177);
-            this.backgroundGroup_pb.TabIndex = 6;
-            this.backgroundGroup_pb.TabStop = false;
-            // 
             // question_lb
             // 
             this.question_lb.AutoSize = true;
@@ -85,6 +76,16 @@
             this.question_lb.TabIndex = 8;
             this.question_lb.Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec malesuada dolor" +
     ". Integer bibendum mattis sem, in congue risus finibus eu.\r\n";
+            this.question_lb.Click += new System.EventHandler(this.question_lb_Click);
+            // 
+            // backgroundGroup_pb
+            // 
+            this.backgroundGroup_pb.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.backgroundGroup_pb.Location = new System.Drawing.Point(29, 65);
+            this.backgroundGroup_pb.Name = "backgroundGroup_pb";
+            this.backgroundGroup_pb.Size = new System.Drawing.Size(1195, 177);
+            this.backgroundGroup_pb.TabIndex = 6;
+            this.backgroundGroup_pb.TabStop = false;
             // 
             // options_gp
             // 
@@ -143,6 +144,7 @@
             this.Name = "Question";
             this.Text = "Question";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Question_Load);
             this.question_gp.ResumeLayout(false);
             this.question_gp.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.backgroundGroup_pb)).EndInit();

@@ -12,6 +12,7 @@ namespace ADollarGame
 {
     public partial class Question : Form
     {
+        private QuestionController ctrl = new QuestionController();
         public Question()
         {
             InitializeComponent();
@@ -23,6 +24,17 @@ namespace ADollarGame
             game_over.Show();
 
             Close();
+        }
+
+        private async void Question_Load(object sender, EventArgs e)
+        {
+            string questionTxt = await ctrl.getQuestionTxt(0);
+            question_lb.Text = questionTxt;
+        }
+
+        private void question_lb_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

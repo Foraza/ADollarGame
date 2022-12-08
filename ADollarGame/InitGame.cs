@@ -47,7 +47,7 @@ namespace ADollarGame
             question.Tag = this;
             question.Show(this);
 
-            Close();
+            Hide();
         }
     }
 }
