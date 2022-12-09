@@ -66,12 +66,14 @@ namespace ADollarGame
             
             conn.Open();
 
-            string sql = "INSERT INTO players (nickname, score, start_time, end_time) VALUES ("
-                + "'" + nickname + "',"
-                + score.ToString("n", us) + ","
-                + "'" + startTime + "',"
-                + "'" + endTime + "')";
-            
+            //string sql = "INSERT INTO players (nickname, score, start_time, end_time,played_time) VALUES ("
+               // + "'" + nickname + "',"
+               // + score.ToString("n", us) + ","
+               // + "'" + startTime + "',"
+               // + "'" + endTime + "')";
+
+            string sql = $"INSERT INTO players (nickname, score, start_time, end_time,played_time) " +
+                $"VALUES ('{nickname}',{score.ToString("n", us)},'{startTime}','{endTime}',timediff(start_time,end_time))";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.ExecuteNonQuery();
 
@@ -82,7 +84,7 @@ namespace ADollarGame
         {
             conn.Open();
 
-            string sql = "SELECT * FROM players WHERE id = " + id;
+            string sql = $"SELECT * FROM players WHERE id ={id}";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             MySqlDataReader dr = cmd.ExecuteReader();
 
@@ -95,13 +97,18 @@ namespace ADollarGame
             
             dr.Close();
 
-            sql = "UPDATE players SET "
-                + "nickname = '" + nickname + "',"
-                + "score = " + score.ToString("n", us) + ","
-                + "start_time = '" + startTime + "',"
-                + "end_time = '" + endTime + "'"
-                + " WHERE id = " + id;
+            //sql = "UPDATE players SET "
+            // + "nickname = '" + nickname + "',"
+            //+ "score = " + score.ToString("n", us) + ","
+            //+ "start_time = '" + startTime + "',"
+            //+ "end_time = '" + endTime + "'"
+            //+ " WHERE id = " + id;
 
+            sql = $"UPDATE players SET nickname = '{nickname}'" +
+                $"score = {score.ToString("n", us)}" +
+                $"start_time ='{startTime}'" +
+                $"end_time = {endTime}" +
+                $"WHERE id = {id}";
             cmd.CommandText = sql;
             cmd.ExecuteNonQuery();
 
@@ -112,12 +119,14 @@ namespace ADollarGame
         {
             conn.Open();
 
-            string sql = "DELETE FROM players WHERE id = " + id;
+            string sql = $"DELETE FROM players WHERE id = {id}";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
 
             cmd.ExecuteNonQuery();
 
             conn.Close();
         }
+
+        
     }
 }
