@@ -11,7 +11,7 @@ namespace ADollarGame
 {
     class DBConnection
     {
-        static private MySqlConnection conn = new MySqlConnection("server=localhost;user=root;database=final_project;port=3308;password=root");
+        static private MySqlConnection conn = new MySqlConnection("server=localhost;user=root;database=a_dollar_game;port=3308;password=root");
         
         static public MySqlConnection getConnection()
         {
