@@ -126,7 +126,8 @@ namespace ADollarGame
 
             conn.Close();
         }
-        public void ranking()
+
+        public List<PlayerModel> ranking()
         {
             List<PlayerModel> rankings = new List<PlayerModel>();
             conn.Open();
@@ -137,9 +138,11 @@ namespace ADollarGame
                 $"and end_time<> ''" +
                 $"and played_time<> ''" +
                 $"order by score desc, played_time";
+
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             MySqlDataReader dr = cmd.ExecuteReader();
             PlayerModel aux = new PlayerModel();
+
             while (dr.Read())
             {
                 aux.Id = dr.GetInt32("id");
@@ -153,7 +156,7 @@ namespace ADollarGame
             }
             dr.Close();
             conn.Close();
-            return rankings
+            return rankings;
         }
         
     }
