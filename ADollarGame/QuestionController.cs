@@ -101,5 +101,126 @@ namespace ADollarGame
             Shuffle(cards);
             return cards;
         }
+
+        //Controle da lifeline audience
+
+        public List<string> lifelineAudience(int i)
+        {
+            List<string> audience = new List<string>();
+            if (questions[i].Difficulty=="easy")
+            {
+                int aux = 0;
+                while (aux < 12)
+                {
+                    Random rnd = new Random();
+                    if (rnd.Next(10) < 7)
+                    {
+                        audience.Add(questions[i].CorrectAnswer);
+                    }
+                    else
+                    {
+                        Random rand = new Random();
+                        audience.Add(questions[i].WrongAnswers[rand.Next(2)]);
+                    }
+                    aux++;
+                }
+            }
+            if (questions[i].Difficulty == "medium")
+            {
+                int aux = 0;
+                while (aux < 12)
+                {
+                    Random rnd = new Random();
+                    if (rnd.Next(10) < 6)
+                    {
+                        audience.Add(questions[i].CorrectAnswer);
+                    }
+                    else
+                    {
+                        Random rand = new Random();
+                        audience.Add(questions[i].WrongAnswers[rand.Next(2)]);
+                    }
+                }
+            }
+            if (questions[i].Difficulty == "hard")
+            {
+                int aux = 0;
+                while (aux < 12)
+                {
+                    Random rnd = new Random();
+                    if (rnd.Next(10) < 5)
+                    {
+                        audience.Add(questions[i].CorrectAnswer);
+                    }
+                    else
+                    {
+                        Random rand = new Random();
+                        audience.Add(questions[i].WrongAnswers[rand.Next(2)]);
+                    }
+                }
+            }
+            return audience;
+        }
+        //Controle da lifeline academics
+
+        public List<string> lifelineAcademics(int i)
+        {
+            List<string> academic = new List<string>();
+            if (questions[i].Difficulty == "easy")
+            {
+                int aux = 0;
+                while (aux < 3)
+                {
+                    Random rnd = new Random();
+                    if (rnd.Next(10) < 9)
+                    {
+                        academic.Add(questions[i].CorrectAnswer);
+                    }
+                    else
+                    {
+                        Random rand = new Random();
+                        academic.Add(questions[i].WrongAnswers[rand.Next(2)]);
+                    }
+                    aux++;
+                }
+            }
+            if (questions[i].Difficulty == "medium")
+            {
+                int aux = 0;
+                while (aux < 3)
+                {
+                    Random rnd = new Random();
+                    if (rnd.Next(10) < 8)
+                    {
+                        academic.Add(questions[i].CorrectAnswer);
+                    }
+                    else
+                    {
+                        Random rand = new Random();
+                        academic.Add(questions[i].WrongAnswers[rand.Next(2)]);
+                    }
+                }
+            }
+            if (questions[i].Difficulty == "hard")
+            {
+                int aux = 0;
+                while (aux < 3)
+                {
+                    Random rnd = new Random();
+                    if (rnd.Next(10) < 7)
+                    {
+                        academic.Add(questions[i].CorrectAnswer);
+                    }
+                    else
+                    {
+                        Random rand = new Random();
+                        academic.Add(questions[i].WrongAnswers[rand.Next(2)]);
+                    }
+                }
+            }
+            return academic;
+        }
+
+       
     }
 }

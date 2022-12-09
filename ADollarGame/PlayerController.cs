@@ -21,15 +21,37 @@ namespace ADollarGame
             return player.Score;
         }
 
-        public void setScore(double score)
+        public void updateScore(int i)
         {
-            player.Score = score;
+            if (i <= 4)
+            {
+                player.Score += 0.01;
+                Console.WriteLine(player.Score);
+
+            }else if(i > 4 && i < 10)
+            {
+                player.Score += 0.03;
+
+            }else if(i >= 10 && i < 15)
+            {
+                player.Score += 0.06;
+
+            }
+            else
+            {
+                player.Score += 0.5;
+            }
         }
 
         public void gameOver()
         {
             player.EndTime = DateTime.Now.TimeOfDay;
             DAO.insert(player);
+        }
+
+        public List<PlayerModel> getAllPlayers()
+        {
+            return DAO.ranking();
         }
     }
 }

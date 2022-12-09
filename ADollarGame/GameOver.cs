@@ -12,18 +12,12 @@ namespace ADollarGame
 {
     public partial class GameOver : Form
     {
-        private double score;
 
-        public double Score { get; set; }
-
-        public GameOver(bool gameRes)
+        public GameOver(double score)
         {
             InitializeComponent();
-            score_lb.Text = $"US$ {score.ToString()}";
+            score_lb.Text = $"US$ {score}";
             AjustPositions();
-
-            if (gameRes)
-                title_lb.Text = "CONGRATS!!";
         }
 
         public void AjustPositions()
@@ -52,6 +46,11 @@ namespace ADollarGame
         private void GameOver_Load(object sender, EventArgs e)
         {
             
+        }
+
+        private void GameOver_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

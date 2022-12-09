@@ -28,10 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ranking));
             this.title_lb = new System.Windows.Forms.Label();
             this.back_bt = new System.Windows.Forms.Button();
             this.topScore_gb = new System.Windows.Forms.GroupBox();
+            this.adollargameDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.a_dollar_gameDataSet = new ADollarGame.a_dollar_gameDataSet();
+            this.playersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.playersTableAdapter = new ADollarGame.a_dollar_gameDataSetTableAdapters.playersTableAdapter();
+            this.playersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.adollargameDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.a_dollar_gameDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playersBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // title_lb
@@ -71,13 +81,37 @@
             this.topScore_gb.TabStop = false;
             this.topScore_gb.Text = "TOP 10 SCORES";
             // 
+            // adollargameDataSetBindingSource
+            // 
+            this.adollargameDataSetBindingSource.DataSource = this.a_dollar_gameDataSet;
+            this.adollargameDataSetBindingSource.Position = 0;
+            // 
+            // a_dollar_gameDataSet
+            // 
+            this.a_dollar_gameDataSet.DataSetName = "a_dollar_gameDataSet";
+            this.a_dollar_gameDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // playersBindingSource
+            // 
+            this.playersBindingSource.DataMember = "players";
+            this.playersBindingSource.DataSource = this.a_dollar_gameDataSet;
+            // 
+            // playersTableAdapter
+            // 
+            this.playersTableAdapter.ClearBeforeFill = true;
+            // 
+            // playersBindingSource1
+            // 
+            this.playersBindingSource1.DataMember = "players";
+            this.playersBindingSource1.DataSource = this.adollargameDataSetBindingSource;
+            // 
             // Ranking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ADollarGame.Properties.Resources.Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(1924, 715);
+            this.ClientSize = new System.Drawing.Size(1293, 715);
             this.Controls.Add(this.topScore_gb);
             this.Controls.Add(this.back_bt);
             this.Controls.Add(this.title_lb);
@@ -87,6 +121,11 @@
             this.Name = "Ranking";
             this.Text = "Ranking";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Ranking_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.adollargameDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.a_dollar_gameDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playersBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -97,5 +136,10 @@
         private System.Windows.Forms.Label title_lb;
         private System.Windows.Forms.Button back_bt;
         private System.Windows.Forms.GroupBox topScore_gb;
+        private a_dollar_gameDataSet a_dollar_gameDataSet;
+        private System.Windows.Forms.BindingSource playersBindingSource;
+        private a_dollar_gameDataSetTableAdapters.playersTableAdapter playersTableAdapter;
+        private System.Windows.Forms.BindingSource adollargameDataSetBindingSource;
+        private System.Windows.Forms.BindingSource playersBindingSource1;
     }
 }

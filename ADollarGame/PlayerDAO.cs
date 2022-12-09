@@ -22,9 +22,10 @@ namespace ADollarGame
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             MySqlDataReader dr = cmd.ExecuteReader();
 
-            PlayerModel aux = new PlayerModel();
             while (dr.Read())
             {
+                PlayerModel aux = new PlayerModel();
+
                 aux.Id = dr.GetInt32("id");
                 aux.Nickname = dr.GetString("nickname");
                 aux.Score = dr.GetDouble("score");
@@ -33,7 +34,10 @@ namespace ADollarGame
 
                 players.Add(aux);
             }
-
+            for (int j = 0; j < players.Count(); j++)
+            {
+                Console.WriteLine(players[j].Nickname + " - " + players[j].Score + " - " + players[j].PlayedTime);
+            }
             dr.Close();
             conn.Close();
             return players;
@@ -132,19 +136,14 @@ namespace ADollarGame
             List<PlayerModel> rankings = new List<PlayerModel>();
             conn.Open();
             string sql = $"SELECT * from players " +
-                $"where nickname<> ''" +
-                $"and score<> ''" +
-                $"and start_time<> ''" +
-                $"and end_time<> ''" +
-                $"and played_time<> ''" +
                 $"order by score desc, played_time";
 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
-            MySqlDataReader dr = cmd.ExecuteReader();
-            PlayerModel aux = new PlayerModel();
+            MySqlDataReader dr = cmd.ExecuteReader();            
 
             while (dr.Read())
             {
+                PlayerModel aux = new PlayerModel();
                 aux.Id = dr.GetInt32("id");
                 aux.Nickname = dr.GetString("nickname");
                 aux.Score = dr.GetDouble("score");
@@ -152,10 +151,17 @@ namespace ADollarGame
                 aux.EndTime = dr.GetTimeSpan("end_time");
                 aux.PlayedTime = dr.GetTimeSpan("played_time");
 
+                //Console.WriteLine(dr.GetString("nickname"));
+
                 rankings.Add(aux);
             }
             dr.Close();
             conn.Close();
+
+            for(int j = 0; j < rankings.Count(); j++)
+            {
+                //Console.WriteLine(rankings[j].Nickname + " - " + rankings[j].Score + " - " + rankings[j].PlayedTime);
+            }
             return rankings;
         }
         

@@ -34,10 +34,9 @@ namespace ADollarGame
         private void stop_bt_Click(object sender, EventArgs e)
         {
             pCtrl.gameOver();
-
-            GameOver game_over = new GameOver(true);
+            double score = pCtrl.getScore();
+            GameOver game_over = new GameOver(2.1);
             game_over.Tag = (Principal)Tag;
-            game_over.Score = pCtrl.getScore();
 
             game_over.Show();
 
@@ -57,6 +56,7 @@ namespace ADollarGame
             int space = 0;
 
             question_gb.Text = $"QUESTION - {actualQuestion + 1}";
+
             question_lb.Text = qCtrl.getAnswer(actualQuestion);
             ans = qCtrl.getAnswers(actualQuestion);
 
@@ -73,7 +73,10 @@ namespace ADollarGame
                     if (result == DialogResult.Yes)
                         if (qCtrl.verifyAnswer(dynamicButton.Text, actualQuestion) == true)
                         {
-                            MessageBox.Show("It's Correct!!");
+                            pCtrl.updateScore(actualQuestion);
+
+                            MessageBox.Show("It's Correct!!");                            
+
                             actualQuestion++;
 
                             if (actualQuestion == 15)
@@ -128,6 +131,11 @@ namespace ADollarGame
             lifelines_gb.Left = ((this.ClientSize.Width - (options_gb.Width + lifelines_gb.Width)) / 2) + options_gb.Width + 10;
             lifelines_gb.Top = lifelines_gb.Width;
         }
+
+       // public void LifelineSkip(int i)
+        //{
+        //    ScreenBuild(actualQuestion  +  1);
+        //}
 
         private void question_lb_Click(object sender, EventArgs e)
         {

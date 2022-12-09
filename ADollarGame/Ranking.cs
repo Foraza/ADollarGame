@@ -12,6 +12,8 @@ namespace ADollarGame
 {
     public partial class Ranking : Form
     {
+        PlayerController pCtrl = new PlayerController();
+
         public Ranking()
         {
             InitializeComponent();
@@ -33,6 +35,7 @@ namespace ADollarGame
 
         private void InsertDataView()
         {
+            List<PlayerModel> players = pCtrl.getAllPlayers();
             DataTable rank = new DataTable("players");
 
             string test = "";
@@ -51,11 +54,16 @@ namespace ADollarGame
 
             for(int i = 0; i < 10; i++)
             {
+                if(i == players.Count)
+                {
+                    break;
+                }
+
                 newRow = rank.NewRow();
                 newRow["Position"] = $"{i + 1}";
-                newRow["Name"] = $"Name - {i + 1}";
-                newRow["Score"] = $"US$ {i + 1}";
-                newRow["Time"] = $"Time - {i + 1}";
+                newRow["Name"] = players[i].Nickname;
+                newRow["Score"] = $"US$ {Math.Round(players[i].Score, 2)}";
+                newRow["Time"] = players[i].PlayedTime;
                 rank.Rows.Add(newRow);
             }
             PrintTable(rank, "");
@@ -102,5 +110,16 @@ namespace ADollarGame
             Close();
         }
 
+        private void Ranking_Load(object sender, EventArgs e)
+        {
+            // TODO: esta linha de código carrega dados na tabela 'a_dollar_gameDataSet.players'. Você pode movê-la ou removê-la conforme necessário.
+            this.playersTableAdapter.Fill(this.a_dollar_gameDataSet.players);
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

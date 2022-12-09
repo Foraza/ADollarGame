@@ -101,6 +101,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="a_dollar_gameDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>a_dollar_gameDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DBConnection.cs" />
     <Compile Include="GameOver.cs">
       <SubType>Form</SubType>
@@ -166,6 +171,17 @@
     <EmbeddedResource Include="Ranking.resx">
       <DependentUpon>Ranking.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="a_dollar_gameDataSet.xsc">
+      <DependentUpon>a_dollar_gameDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="a_dollar_gameDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>a_dollar_gameDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="a_dollar_gameDataSet.xss">
+      <DependentUpon>a_dollar_gameDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
