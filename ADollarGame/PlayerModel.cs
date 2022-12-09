@@ -13,14 +13,18 @@ namespace ADollarGame
         private double score;
         private TimeSpan startTime;
         private TimeSpan endTime;
+        private TimeSpan playedTime;
 
         public int Id { get; set; }
 
         public string Nickname { get; set; }
 
         public double Score { get; set; }
+
         public TimeSpan StartTime { get; set; }
 
         public TimeSpan EndTime { get; set; }
+
+        public TimeSpan PlayedTime { get; set; }
     }
 }

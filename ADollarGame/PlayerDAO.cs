@@ -29,7 +29,7 @@ namespace ADollarGame
                 aux.Nickname = dr.GetString("nickname");
                 aux.Score = dr.GetDouble("score");
                 aux.StartTime = dr.GetTimeSpan("start_time");
-                aux.StartTime = dr.GetTimeSpan("end_time");
+                aux.EndTime = dr.GetTimeSpan("end_time");
 
                 players.Add(aux);
             }
@@ -43,7 +43,7 @@ namespace ADollarGame
         {
             conn.Open();
 
-            string sql = "SELECT * FROM players WHERE id = " + id;
+            string sql = $"SELECT * FROM players WHERE id = {id}";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             MySqlDataReader dr = cmd.ExecuteReader();
 
@@ -54,14 +54,14 @@ namespace ADollarGame
             aux.Nickname = dr.GetString("nickname");
             aux.Score = dr.GetDouble("score");
             aux.StartTime = dr.GetTimeSpan("start_time");
-            aux.StartTime = dr.GetTimeSpan("end_time");
+            aux.EndTime = dr.GetTimeSpan("end_time");
 
             dr.Close();
             conn.Close();
             return aux;
         }
 
-        public void insert(string nickname = null, double score = 0, TimeSpan startTime = new TimeSpan(), TimeSpan endTime = new TimeSpan())
+        public void insert(PlayerModel player)
         {
             
             conn.Open();
@@ -73,7 +73,7 @@ namespace ADollarGame
                // + "'" + endTime + "')";
 
             string sql = $"INSERT INTO players (nickname, score, start_time, end_time,played_time) " +
-                $"VALUES ('{nickname}',{score.ToString("n", us)},'{startTime}','{endTime}',timediff(start_time,end_time))";
+                         $"VALUES ('{player.Nickname}',{player.Score.ToString("n", us)},'{player.StartTime}','{player.EndTime}',timediff(start_time,end_time))";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.ExecuteNonQuery();
 
@@ -105,10 +105,10 @@ namespace ADollarGame
             //+ " WHERE id = " + id;
 
             sql = $"UPDATE players SET nickname = '{nickname}'" +
-                $"score = {score.ToString("n", us)}" +
-                $"start_time ='{startTime}'" +
-                $"end_time = {endTime}" +
-                $"WHERE id = {id}";
+                  $"score = {score.ToString("n", us)}" +
+                  $"start_time ='{startTime}'" +
+                  $"end_time = {endTime}" +
+                  $"WHERE id = {id}";
             cmd.CommandText = sql;
             cmd.ExecuteNonQuery();
 
@@ -126,7 +126,35 @@ namespace ADollarGame
 
             conn.Close();
         }
+        public void ranking()
+        {
+            List<PlayerModel> rankings = new List<PlayerModel>();
+            conn.Open();
+            string sql = $"SELECT * from players " +
+                $"where nickname<> ''" +
+                $"and score<> ''" +
+                $"and start_time<> ''" +
+                $"and end_time<> ''" +
+                $"and played_time<> ''" +
+                $"order by score desc, played_time";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            MySqlDataReader dr = cmd.ExecuteReader();
+            PlayerModel aux = new PlayerModel();
+            while (dr.Read())
+            {
+                aux.Id = dr.GetInt32("id");
+                aux.Nickname = dr.GetString("nickname");
+                aux.Score = dr.GetDouble("score");
+                aux.StartTime = dr.GetTimeSpan("start_time");
+                aux.EndTime = dr.GetTimeSpan("end_time");
+                aux.PlayedTime = dr.GetTimeSpan("played_time");
 
+                rankings.Add(aux);
+            }
+            dr.Close();
+            conn.Close();
+            return rankings
+        }
         
     }
 }
