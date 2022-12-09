@@ -18,6 +18,7 @@ namespace ADollarGame
         public Question()
         {
             InitializeComponent();
+            AjustPositions();
         }
 
         public void setCurrentPlayer(string nickname)
@@ -34,7 +35,7 @@ namespace ADollarGame
         {
             pCtrl.gameOver();
 
-            GameOver game_over = new GameOver();
+            GameOver game_over = new GameOver(true);
             game_over.Tag = (Principal)Tag;
             game_over.Score = pCtrl.getScore();
 
@@ -50,11 +51,12 @@ namespace ADollarGame
             ScreenBuild(actualQuestion);
         }
 
-        private void ScreenBuild(int i) {
+        private void ScreenBuild(int i)
+        {
             List<string> ans = new List<string>();
             int space = 0;
 
-            question_gb.Text = $"QUESTION - {actualQuestion+1}";
+            question_gb.Text = $"QUESTION - {actualQuestion + 1}";
             question_lb.Text = qCtrl.getAnswer(actualQuestion);
             ans = qCtrl.getAnswers(actualQuestion);
 
@@ -73,14 +75,23 @@ namespace ADollarGame
                         {
                             MessageBox.Show("It's Correct!!");
                             actualQuestion++;
+
+                            if (actualQuestion == 15)
+                            {
+                                Form game_over = new GameOver(true);
+                                game_over.Tag = (Principal)Tag;
+                                game_over.Show();
+
+                                Close();
+                            }
+
                             ScreenBuild(actualQuestion);
-                            Console.WriteLine(actualQuestion);
                         }
                         else
                         {
                             MessageBox.Show("It's Wrong!!");
                         }
-                            
+
                 };
 
                 dynamicButton.Size = new Size(730, 60);
@@ -94,6 +105,28 @@ namespace ADollarGame
                 dynamicButton.Left = (this.options_gb.Width - dynamicButton.Width) / 2;
                 dynamicButton.Top = ((this.options_gb.Height - (dynamicButton.Height * 4)) / 2) * ++space;
             }
+        }
+
+        public void AjustPositions()
+        {
+            //Titulo
+            title_lb.Left = (this.ClientSize.Width - title_lb.Width) / 2;
+            title_lb.Top = title_lb.Height;
+
+            //Background "Question"
+            backgroundGroup_pb.Left = (this.ClientSize.Width - backgroundGroup_pb.Width) / 2;
+            backgroundGroup_pb.Top = title_lb.Height * 3;
+            //Group "Question"
+            question_gb.Left = (this.ClientSize.Width - question_gb.Width) / 2;
+            question_gb.Top = title_lb.Height * 3;
+
+            //Group "Alternatives"
+            options_gb.Left = ((this.ClientSize.Width - (options_gb.Width + lifelines_gb.Width)) / 2) - 10;
+            options_gb.Top = lifelines_gb.Width;
+
+            //Group "Lifelines"
+            lifelines_gb.Left = ((this.ClientSize.Width - (options_gb.Width + lifelines_gb.Width)) / 2) + options_gb.Width + 10;
+            lifelines_gb.Top = lifelines_gb.Width;
         }
 
         private void question_lb_Click(object sender, EventArgs e)

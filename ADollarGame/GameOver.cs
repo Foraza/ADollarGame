@@ -16,10 +16,14 @@ namespace ADollarGame
 
         public double Score { get; set; }
 
-        public GameOver()
+        public GameOver(bool gameRes)
         {
             InitializeComponent();
+            score_lb.Text = $"US$ {score.ToString()}";
             AjustPositions();
+
+            if (gameRes)
+                title_lb.Text = "CONGRATS!!";
         }
 
         public void AjustPositions()
@@ -47,8 +51,7 @@ namespace ADollarGame
 
         private void GameOver_Load(object sender, EventArgs e)
         {
-            AjustPositions();
-            score_lb.Text = $"US$ {score.ToString()}";
+            
         }
     }
 }

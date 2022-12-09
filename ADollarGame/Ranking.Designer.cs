@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ranking));
             this.title_lb = new System.Windows.Forms.Label();
             this.back_bt = new System.Windows.Forms.Button();
+            this.topScore_gb = new System.Windows.Forms.GroupBox();
             this.SuspendLayout();
             // 
             // title_lb
@@ -57,13 +58,27 @@
             this.back_bt.UseVisualStyleBackColor = true;
             this.back_bt.Click += new System.EventHandler(this.back_bt_Click);
             // 
+            // topScore_gb
+            // 
+            this.topScore_gb.BackColor = System.Drawing.Color.Transparent;
+            this.topScore_gb.BackgroundImage = global::ADollarGame.Properties.Resources.Blur;
+            this.topScore_gb.Font = new System.Drawing.Font("Impact", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.topScore_gb.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.topScore_gb.Location = new System.Drawing.Point(478, 278);
+            this.topScore_gb.Name = "topScore_gb";
+            this.topScore_gb.Size = new System.Drawing.Size(200, 100);
+            this.topScore_gb.TabIndex = 3;
+            this.topScore_gb.TabStop = false;
+            this.topScore_gb.Text = "TOP 10 SCORES";
+            // 
             // Ranking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ADollarGame.Properties.Resources.Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(1940, 1100);
+            this.ClientSize = new System.Drawing.Size(1924, 715);
+            this.Controls.Add(this.topScore_gb);
             this.Controls.Add(this.back_bt);
             this.Controls.Add(this.title_lb);
             this.DoubleBuffered = true;
@@ -81,5 +96,6 @@
 
         private System.Windows.Forms.Label title_lb;
         private System.Windows.Forms.Button back_bt;
+        private System.Windows.Forms.GroupBox topScore_gb;
     }
 }

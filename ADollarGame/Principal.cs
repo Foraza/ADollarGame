@@ -42,7 +42,7 @@ namespace ADollarGame
         {
             Form initGame = new InitGame();
             initGame.Tag = this;
-            initGame.Show(this);
+            initGame.Show();
 
             Hide();
         }
@@ -51,16 +51,7 @@ namespace ADollarGame
         {
             Form ranking = new Ranking();
             ranking.Tag = this;
-            ranking.Show(this);
-
-            Hide();
-        }
-
-        private void test_bt_Click(object sender, EventArgs e)
-        {
-            Form game_over = new GameOver();
-            game_over.Tag = this;
-            game_over.Show(this);
+            ranking.Show();
 
             Hide();
         }

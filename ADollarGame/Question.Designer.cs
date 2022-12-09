@@ -50,7 +50,7 @@
             this.title_lb.Location = new System.Drawing.Point(452, 14);
             this.title_lb.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.title_lb.Name = "title_lb";
-            this.title_lb.Size = new System.Drawing.Size(414, 80);
+            this.title_lb.Size = new System.Drawing.Size(278, 53);
             this.title_lb.TabIndex = 4;
             this.title_lb.Text = "A DOLLAR GAME";
             // 
@@ -76,11 +76,9 @@
             this.question_lb.Location = new System.Drawing.Point(9, 63);
             this.question_lb.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.question_lb.Name = "question_lb";
-            this.question_lb.Size = new System.Drawing.Size(1841, 39);
+            this.question_lb.Size = new System.Drawing.Size(94, 27);
             this.question_lb.TabIndex = 8;
-            this.question_lb.Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec malesuada dolor" +
-    ". Integer bibendum mattis sem, in congue risus finibus eu.\r\n";
-            this.question_lb.Click += new System.EventHandler(this.question_lb_Click);
+            this.question_lb.Text = "Loading...";
             // 
             // backgroundGroup_pb
             // 
@@ -106,7 +104,6 @@
             this.options_gb.TabIndex = 8;
             this.options_gb.TabStop = false;
             this.options_gb.Text = "ALTERNATIVES";
-            this.options_gb.Enter += new System.EventHandler(this.options_gp_Enter);
             // 
             // lifelines_gb
             // 
@@ -143,7 +140,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ADollarGame.Properties.Resources.Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(1946, 1106);
+            this.ClientSize = new System.Drawing.Size(2886, 1100);
             this.Controls.Add(this.lifelines_gb);
             this.Controls.Add(this.options_gb);
             this.Controls.Add(this.question_gb);
