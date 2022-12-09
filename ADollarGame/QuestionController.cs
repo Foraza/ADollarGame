@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -67,6 +68,32 @@ namespace ADollarGame
             }
 
             return false;
+        }
+
+        //Controle da lifeline cards
+        static Random _random = new Random();
+        public static void Shuffle<T>(T[] array)
+        {
+            var random = _random;
+            for (int i = array.Length; i > 1; i--)
+            {
+                int j = random.Next(i);
+                T tmp = array[j];
+                array[j] = array[i - 1];
+                array[i - 1] = tmp;
+            }
+        }
+        static string[] randCard()
+        {
+            string[] cards =
+            {
+                "None",
+                "1 question",
+                "2 questions",
+                "3 questions"
+            };
+            Shuffle(cards);
+            return cards;
         }
     }
 }
