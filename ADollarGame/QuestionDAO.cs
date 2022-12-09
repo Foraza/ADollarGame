@@ -11,26 +11,40 @@ namespace ADollarGame
     class QuestionDAO
     {
         HttpClient client = new HttpClient();
-        private string url = "https://the-trivia-api.com/api/questions?limit=5&difficulty=";
 
         //Faz a requisição para a API e retorna as informações da questão
-        public async Task<List<QuestionModel>> get(string difficulty)
+        public async Task<List<QuestionModel>> get()
         {
-            var response = await client.GetAsync(url + difficulty);
-            var content = await response.Content.ReadAsStringAsync();
-            var questions = JsonConvert.DeserializeObject<Questions[]>(content);
-            //var question = questions[0];
-
             List<QuestionModel> li = new List<QuestionModel>();
-
-            foreach (var question in questions)
+            string difficulty = "easy";
+            int nQuestions = 5;
+             
+            for(int i = 1; i <= 3; i++)
             {
-                QuestionModel aux = new QuestionModel();
-                aux.Text = question.Question;
-                aux.CorrectAnswer = question.CorrectAnswer;
-                aux.WrongAnswers = question.IncorrectAnswers;
+                if(i == 2)
+                {
+                    difficulty = "medium";
 
-                li.Add(aux);
+                }else if(i == 3)
+                {
+                    nQuestions = 6;
+                    difficulty = "hard";
+                }
+
+                string url = "https://the-trivia-api.com/api/questions?limit=" + nQuestions + "&difficulty=" + difficulty;   
+                var response = await client.GetAsync(url);
+                var content = await response.Content.ReadAsStringAsync();
+                var questions = JsonConvert.DeserializeObject<Questions[]>(content);
+
+                foreach (var question in questions)
+                {
+                    QuestionModel aux = new QuestionModel();
+                    aux.Text = question.Question;
+                    aux.CorrectAnswer = question.CorrectAnswer;
+                    aux.WrongAnswers = question.IncorrectAnswers;
+
+                    li.Add(aux);
+                }
             }
 
             return li;

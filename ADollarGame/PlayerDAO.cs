@@ -73,7 +73,7 @@ namespace ADollarGame
                // + "'" + endTime + "')";
 
             string sql = $"INSERT INTO players (nickname, score, start_time, end_time,played_time) " +
-                         $"VALUES ('{player.Nickname}',{player.Score.ToString("n", us)},'{player.StartTime}','{player.EndTime}',timediff(start_time,end_time))";
+                         $"VALUES ('{player.Nickname}',{player.Score.ToString("n", us)},'{player.StartTime}','{player.EndTime}',timediff(end_time,start_time))";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.ExecuteNonQuery();
 

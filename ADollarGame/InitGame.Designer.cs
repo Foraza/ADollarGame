@@ -45,7 +45,8 @@
             this.title_lb.BackColor = System.Drawing.Color.Transparent;
             this.title_lb.Font = new System.Drawing.Font("Impact", 32F);
             this.title_lb.ForeColor = System.Drawing.Color.White;
-            this.title_lb.Location = new System.Drawing.Point(333, 9);
+            this.title_lb.Location = new System.Drawing.Point(500, 14);
+            this.title_lb.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.title_lb.Name = "title_lb";
             this.title_lb.Size = new System.Drawing.Size(116, 53);
             this.title_lb.TabIndex = 0;
@@ -60,9 +61,11 @@
             this.name_gp.Controls.Add(this.textBox1);
             this.name_gp.Font = new System.Drawing.Font("Impact", 16F);
             this.name_gp.ForeColor = System.Drawing.Color.White;
-            this.name_gp.Location = new System.Drawing.Point(193, 152);
+            this.name_gp.Location = new System.Drawing.Point(290, 234);
+            this.name_gp.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.name_gp.Name = "name_gp";
-            this.name_gp.Size = new System.Drawing.Size(366, 164);
+            this.name_gp.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.name_gp.Size = new System.Drawing.Size(549, 252);
             this.name_gp.TabIndex = 1;
             this.name_gp.TabStop = false;
             this.name_gp.Text = "INSERT YOUR NAME";
@@ -71,9 +74,10 @@
             // 
             this.start_bt.BackColor = System.Drawing.SystemColors.Control;
             this.start_bt.ForeColor = System.Drawing.Color.Indigo;
-            this.start_bt.Location = new System.Drawing.Point(196, 108);
+            this.start_bt.Location = new System.Drawing.Point(294, 166);
+            this.start_bt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.start_bt.Name = "start_bt";
-            this.start_bt.Size = new System.Drawing.Size(100, 50);
+            this.start_bt.Size = new System.Drawing.Size(150, 77);
             this.start_bt.TabIndex = 2;
             this.start_bt.Text = "START";
             this.start_bt.UseVisualStyleBackColor = false;
@@ -83,9 +87,10 @@
             // 
             this.back_bt.BackColor = System.Drawing.SystemColors.Control;
             this.back_bt.ForeColor = System.Drawing.Color.Indigo;
-            this.back_bt.Location = new System.Drawing.Point(74, 108);
+            this.back_bt.Location = new System.Drawing.Point(111, 166);
+            this.back_bt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.back_bt.Name = "back_bt";
-            this.back_bt.Size = new System.Drawing.Size(100, 50);
+            this.back_bt.Size = new System.Drawing.Size(150, 77);
             this.back_bt.TabIndex = 1;
             this.back_bt.Text = "BACK";
             this.back_bt.UseVisualStyleBackColor = false;
@@ -93,24 +98,26 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(6, 33);
+            this.textBox1.Location = new System.Drawing.Point(9, 51);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(354, 34);
+            this.textBox1.Size = new System.Drawing.Size(529, 34);
             this.textBox1.TabIndex = 0;
             // 
             // backgroundGroup_pb
             // 
             this.backgroundGroup_pb.BackColor = System.Drawing.Color.Transparent;
             this.backgroundGroup_pb.BackgroundImage = global::ADollarGame.Properties.Resources.Blur;
-            this.backgroundGroup_pb.Location = new System.Drawing.Point(180, 124);
+            this.backgroundGroup_pb.Location = new System.Drawing.Point(270, 191);
+            this.backgroundGroup_pb.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.backgroundGroup_pb.Name = "backgroundGroup_pb";
-            this.backgroundGroup_pb.Size = new System.Drawing.Size(392, 223);
+            this.backgroundGroup_pb.Size = new System.Drawing.Size(588, 343);
             this.backgroundGroup_pb.TabIndex = 2;
             this.backgroundGroup_pb.TabStop = false;
             // 
             // InitGame
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ADollarGame.Properties.Resources.Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -121,9 +128,11 @@
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "InitGame";
             this.Text = "InitGame";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.InitGame_Load);
             this.name_gp.ResumeLayout(false);
             this.name_gp.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.backgroundGroup_pb)).EndInit();

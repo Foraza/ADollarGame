@@ -6,16 +6,14 @@ using System.Threading.Tasks;
 
 namespace ADollarGame
 {
-    class PlayerController
+    public class PlayerController
     {
         private PlayerDAO DAO = new PlayerDAO();
         private PlayerModel player = new PlayerModel();
 
-        public void startGame(string nickname) 
+        public void startGame(PlayerModel player) 
         {
-            player.Nickname = nickname;
-            player.StartTime = DateTime.Now.TimeOfDay;
-            DAO.insert(player);
+            this.player = player;
         }
 
         public double getScore()

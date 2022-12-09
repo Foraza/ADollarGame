@@ -12,6 +12,10 @@ namespace ADollarGame
 {
     public partial class GameOver : Form
     {
+        private double score;
+
+        public double Score { get; set; }
+
         public GameOver()
         {
             InitializeComponent();
@@ -39,6 +43,12 @@ namespace ADollarGame
             principal.Show();
 
             Close();
+        }
+
+        private void GameOver_Load(object sender, EventArgs e)
+        {
+            AjustPositions();
+            score_lb.Text = $"US$ {score.ToString()}";
         }
     }
 }

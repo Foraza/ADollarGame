@@ -15,7 +15,7 @@ namespace ADollarGame
         //Armazena as informações da questões retornadas pela API
         public async Task<bool> getQuestions(string difficulty)
         {
-            List<QuestionModel> aux = await DAO.get(difficulty);
+            List<QuestionModel> aux = await DAO.get();
             this.questions = aux;
             return true;
         }
@@ -40,6 +40,12 @@ namespace ADollarGame
                 }
             }
 
+            return questions[i].Text;
+        }
+
+        //Retorna o texto da pergunta
+        public string getAnswer(int i)
+        {
             return questions[i].Text;
         }
 

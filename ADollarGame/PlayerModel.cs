@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ADollarGame
 {
-    class PlayerModel
+    public class PlayerModel
     {
         private int id;
         private string nickname;

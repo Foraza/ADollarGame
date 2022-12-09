@@ -43,11 +43,18 @@ namespace ADollarGame
 
         private void start_bt_Click(object sender, EventArgs e)
         {
-            Form question = new Question();
-            question.Tag = this;
-            question.Show(this);
+            Question question = new Question();
+            question.Tag = (Principal)Tag;
+            question.Show();
+
+            question.setCurrentPlayer(textBox1.Text);
 
             Hide();
+        }
+
+        private void InitGame_Load(object sender, EventArgs e)
+        {
+            AjustPositions();
         }
     }
 }
