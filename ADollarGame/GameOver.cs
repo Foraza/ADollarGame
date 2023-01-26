@@ -13,11 +13,14 @@ namespace ADollarGame
     public partial class GameOver : Form
     {
 
-        public GameOver(double score)
+        public GameOver(bool gameRes, double score)
         {
             InitializeComponent();
             score_lb.Text = $"US$ {score}";
             AjustPositions();
+
+            if (gameRes)
+                title_lb.Text = "CONGRATS!!";
         }
 
         public void AjustPositions()

@@ -34,8 +34,7 @@ namespace ADollarGame
         private void stop_bt_Click(object sender, EventArgs e)
         {
             pCtrl.gameOver();
-            double score = pCtrl.getScore();
-            GameOver game_over = new GameOver(2.1);
+            GameOver game_over = new GameOver(true, pCtrl.getScore());
             game_over.Tag = (Principal)Tag;
 
             game_over.Show();
@@ -81,7 +80,7 @@ namespace ADollarGame
 
                             if (actualQuestion == 15)
                             {
-                                Form game_over = new GameOver(true);
+                                Form game_over = new GameOver(true, pCtrl.getScore());
                                 game_over.Tag = (Principal)Tag;
                                 game_over.Show();
 
@@ -132,10 +131,10 @@ namespace ADollarGame
             lifelines_gb.Top = lifelines_gb.Width;
         }
 
-       // public void LifelineSkip(int i)
-        //{
-        //    ScreenBuild(actualQuestion  +  1);
-        //}
+       public void LifelineSkip(int i)
+        {
+            ScreenBuild(actualQuestion  +  1);
+        }
 
         private void question_lb_Click(object sender, EventArgs e)
         {
